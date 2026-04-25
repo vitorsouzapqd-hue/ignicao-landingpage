@@ -739,39 +739,18 @@
                     <div class="ig-screen-frame" style="
                         position: relative;
                         width: 100%;
-                        aspect-ratio: 9 / 20;
+                        aspect-ratio: 9 / 16; /* Proporção exata do vídeo para não sobrar espaço e não cortar */
                         background: #000;
-                        border-radius: 34px;
+                        border-radius: 12px; /* Arredondamento suave para não cortar as quinas do vídeo */
                         overflow: hidden;
                         border: 1px solid rgba(255,255,255,0.05);
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: flex-start; /* Alinha no topo da área segura */
-                        padding: 80px 12px 40px 12px; /* Área segura gigante no topo */
-                        box-sizing: border-box;
                     ">
-                        <!-- Dynamic Island / Notch -->
-                        <div class="ig-notch" style="
-                            position: absolute;
-                            top: 7px;
-                            left: 50%;
-                            transform: translateX(-50%);
-                            width: 84px;
-                            height: 22px;
-                            background: #000;
-                            border-radius: 20px;
-                            z-index: 10;
-                            box-shadow: inset 0 -1px 2px rgba(255,255,255,0.1);
-                        "></div>
-
                         <video src="painel-prova.mp4" autoplay loop muted playsinline preload="auto" style="
-                                left: 0;
-                                right: 0;
+                                position: absolute;
+                                inset: 0;
                                 width: 100%;
-                                height: auto;
-                                max-height: calc(100% - 60px);
-                                object-fit: contain;
+                                height: 100%;
+                                object-fit: cover; /* Preenche perfeitamente a tela 9/16 */
                                 background: #000;
                                 display: block;
                             "></video>
@@ -780,7 +759,7 @@
                         <div class="ig-screen-glare" style="
                             position: absolute;
                             inset: 0;
-                            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 40%);
+                            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 40%);
                             pointer-events: none;
                             z-index: 10;
                         "></div>
