@@ -286,6 +286,8 @@
             text-transform: uppercase;
             text-align: center;
             line-height: 1.2;
+            padding: 16px 24px; /* Adicionado padding padrão */
+            font-size: 0.95rem;
             border-radius: var(--radius-element);
             border: none;
             text-decoration: none;
@@ -301,10 +303,10 @@
         }
 
         .cta-btn.large {
-            padding: 18px 28px;
-            font-size: 1rem;
+            padding: 22px 42px;
+            font-size: 1.15rem;
             width: 100%;
-            max-width: 360px;
+            max-width: 440px;
         }
 
         .cta-btn.small {
@@ -513,13 +515,7 @@
             }
 
             .ig-core-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 1000px) {
-            .ig-core-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr); /* Ajustado para 3 colunas para o layout bento */
             }
         }
 
@@ -604,8 +600,7 @@
             </h1>
             <p class="reveal"
                 style="font-family:Inter, sans-serif; font-size:clamp(0.92rem, 2.2vw, 1.12rem); color:var(--color-text-readable); max-width:600px; margin:22px auto 0; line-height:1.55; transition-delay:120ms;">
-                Tenha um protocolo de prova personalizado para eliminar o improviso e saber exatamente o que comer antes
-                e durante a prova.
+                Entre na prova com um plano claro e saia dela com o tempo que você sabe que é capaz.
             </p>
             <div class="reveal" style="margin-top:40px; display:flex; justify-content:center; transition-delay:180ms;">
                 <a href="https://api.whatsapp.com/send/?phone=5592991118886&text=Quero+montar+a+minha+estrat%C3%A9gia+de+prova+com+voc%C3%AA"
@@ -634,7 +629,8 @@
                 </h2>
                 <p
                     style="margin-top:18px; font-size:0.95rem; color:var(--color-text-readable); line-height:1.65; max-width:480px;">
-                    O Painel de Prova organiza tudo o que você precisa fazer do dia anterior até a chegada. Nada de PDF
+                    O Painel de Prova é o aplicativo exclusivo que organiza tudo o que você precisa fazer do dia
+                    anterior até a chegada. Nada de PDF
                     perdido, print no WhatsApp ou tentativa de lembrar o que foi combinado.
                 </p>
 
@@ -870,6 +866,9 @@
                             style="margin:0; font-family:var(--font-display); font-size:clamp(1.2rem, 3vw, 1.5rem); font-weight:700; letter-spacing:-0.01em; background-image:var(--brand-gradient); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1.25; max-width:620px; position:relative;">
                             Enquanto sua estratégia nutricional for improvisada, seu resultado também será.
                         </p>
+                        <div style="margin-top:16px; position:relative; z-index:2;">
+                            <a href="#oferta" class="cta-btn small">QUERO MUDAR ISSO</a>
+                        </div>
                     </figure>
                 </div>
             </div>
@@ -1181,22 +1180,24 @@
             </div>
 
             <div class="ig-core-grid">
-                <div class="reveal" style="transition-delay:0ms;">
-                    <div class="glass-card" style="padding:24px; height:100%; border-color:var(--color-border-subtle);">
+                <div class="reveal" style="transition-delay:0ms; grid-column:1 / -1;">
+                    <div class="glass-card" style="padding:28px 32px; height:100%; border-color:var(--color-action-primary); background:linear-gradient(145deg, rgba(255,115,74,0.06) 0%, transparent 100%); display:flex; flex-direction:column; gap:16px;">
                         <span
-                            style="display:inline-flex; width:44px; height:44px; border-radius:var(--radius-element); background:rgba(192,26,26,0.10); border:1px solid rgba(192,26,26,0.28); align-items:center; justify-content:center; margin-bottom:14px;">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                stroke="var(--color-action-primary)" stroke-width="2">
+                            style="display:inline-flex; width:48px; height:48px; border-radius:var(--radius-element); background:var(--color-action-primary); align-items:center; justify-content:center; box-shadow:0 0 24px rgba(255,115,74,0.3);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="#FFF" stroke-width="2">
                                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                             </svg>
                         </span>
-                        <h3
-                            style="margin:0; font-family:var(--font-display); font-weight:700; font-size:1.1rem; color:var(--color-text-primary);">
-                            Acesso ao Painel de Prova</h3>
-                        <p
-                            style="margin:8px 0 0; font-size:0.88rem; color:var(--color-text-readable); line-height:1.55;">
-                            O app exclusivo com todas as ferramentas que permitem que você não se preocupe com nada,
-                            apenas execute.</p>
+                        <div>
+                            <h3
+                                style="margin:0; font-family:var(--font-display); font-weight:700; font-size:1.3rem; color:var(--color-text-primary);">
+                                Acesso ao Painel de Prova</h3>
+                            <p
+                                style="margin:8px 0 0; font-size:0.92rem; color:var(--color-text-readable); line-height:1.6; max-width:580px;">
+                                O aplicativo exclusivo com todas as ferramentas que permitem que você não se preocupe com nada,
+                                apenas execute. Acesso total à sua estratégia detalhada, validada e ajustada na palma da mão.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="reveal" style="transition-delay:60ms;">
@@ -1373,6 +1374,10 @@
                         isso fora.</span>
                 </h2>
             </div>
+            
+            <div class="reveal" style="transition-delay:50ms;">
+                <p style="margin:28px auto 0; font-family:var(--font-display); font-size:1.05rem; color:var(--color-text-readable); font-weight:600; letter-spacing:0.04em;">Investimento: a partir de 12x de <span style="color:var(--color-text-primary);">R$ 29,70</span></p>
+            </div>
 
             <div class="reveal" style="transition-delay:100ms;">
                 <div
@@ -1441,12 +1446,18 @@
 
                             <div style="margin-top:22px; display:flex; justify-content:center;">
                                 <a href="https://api.whatsapp.com/send/?phone=5592991118886&text=Quero+montar+a+minha+estrat%C3%A9gia+de+prova+com+voc%C3%AA"
-                                    target="_blank" class="cta-btn full-width" style="width:100%;">QUERO PARAR DE
-                                    IMPROVISAR</a>
+                                    target="_blank" class="cta-btn large full-width" style="width:100%;">QUERO MONTAR MINHA ESTRATÉGIA</a>
+                            </div>
+                            <div style="margin-top:16px; display:flex; align-items:center; justify-content:center; gap:8px; color:var(--color-text-readable); font-size:0.82rem; font-weight:500;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-action-primary)" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    <path d="m9 12 2 2 4-4"></path>
+                                </svg>
+                                <span>Garantia de 7 dias — O risco é meu</span>
                             </div>
                             <p
-                                style="text-align:center; color:var(--color-text-readable); font-size:0.76rem; margin-top:10px; line-height:1.5;">
-                                Acesso imediato após confirmação · Valor promocional de lançamento para os 10 primeiros.
+                                style="text-align:center; color:var(--color-text-disabled); font-size:0.72rem; margin-top:14px; line-height:1.5;">
+                                Acesso imediato após confirmação · Vagas limitadas.
                             </p>
                         </div>
                     </div>
@@ -1479,9 +1490,7 @@
                         Prova sem improviso</h3>
                     <p
                         style="margin:0; font-size:1rem; color:var(--color-text-readable); line-height:1.65; max-width:540px;">
-                        Se você seguir o protocolo, aplicar nos treinos e chegar na prova sem clareza do que fazer em
-                        cada momento, <span style="color:var(--color-text-primary); font-weight:600;">eu devolvo seu
-                            dinheiro.</span>
+                        Você tem <strong style="color:var(--color-text-primary);">7 dias</strong> para testar. Se você seguir o protocolo, aplicar nos treinos e mesmo assim sentir que não saiu do improviso, <span style="color:var(--color-text-primary); font-weight:600;">eu devolvo seu dinheiro.</span> Peço apenas que, se não fizer sentido, você não fique.
                     </p>
                 </div>
             </div>
@@ -1640,10 +1649,9 @@
         © 2026 Protocolo Ignição · Nutrição estratégica para corredores
     </footer>
 
-    <!-- STICKY CTA MOBILE -->
     <div class="ig-sticky-cta" id="stickyCta">
         <a href="https://api.whatsapp.com/send/?phone=5592991118886&text=Quero+montar+a+minha+estrat%C3%A9gia+de+prova+com+voc%C3%AA"
-            target="_blank" class="cta-btn small">QUERO PARAR DE IMPROVISAR</a>
+            target="_blank" class="cta-btn small">COMEÇAR AGORA</a>
     </div>
 
     <script>
