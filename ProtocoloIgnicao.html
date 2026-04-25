@@ -231,6 +231,54 @@
             display: block;
         }
 
+        /* MOCKUP ULTRA REALISTA CSS */
+        .ig-device-mockup {
+            position: relative;
+            width: 100%;
+            max-width: 284px;
+            padding: 10px;
+            background: linear-gradient(145deg, #383836 0%, #1A1A1A 100%);
+            border-radius: 42px;
+            box-shadow: 
+                inset 0 0 1px 1px rgba(255,255,255,0.15), 
+                inset 0 4px 10px rgba(255,255,255,0.08),
+                0 30px 60px -20px rgba(0,0,0,0.7), 
+                0 0 60px rgba(192,26,26,0.15);
+            z-index: 2;
+        }
+        
+        /* Botões laterais do iPhone */
+        .ig-device-mockup::before {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: 90px;
+            width: 3px;
+            height: 26px;
+            background: #444;
+            border-radius: 4px 0 0 4px;
+        }
+        .ig-device-mockup::after {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: 130px;
+            width: 3px;
+            height: 45px;
+            background: #444;
+            border-radius: 4px 0 0 4px;
+            box-shadow: 0 55px 0 #444; /* Botão de volume baixo */
+        }
+        .ig-btn-power {
+            position: absolute;
+            right: -3px;
+            top: 110px;
+            width: 3px;
+            height: 60px;
+            background: #444;
+            border-radius: 0 4px 4px 0;
+        }
+
         /* BENTO GRID (Problemas) */
         .ig-bento { display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 36px; }
         @media (min-width: 720px) { .ig-bento { grid-template-columns: repeat(3, 1fr); } }
@@ -366,8 +414,60 @@
                     <label>Próximo gel</label><strong>km 18</strong>
                 </div>
 
-                <div style="position:relative; width:100%; max-width:260px; aspect-ratio:9/16; background:#000; border-radius:32px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; z-index:2; box-shadow:0 30px 60px -20px rgba(0,0,0,0.55), 0 0 60px rgba(255,115,74,0.08);">
-                    <video src="painel-prova.mp4" autoplay loop muted playsinline preload="auto" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#000; display:block;"></video>
+                <!-- Screen container — Mockup Ultra Realista -->
+                <div class="ig-device-mockup">
+                    <div class="ig-btn-power"></div>
+                    
+                    <div class="ig-screen-frame" style="
+                        position: relative;
+                        width: 100%;
+                        aspect-ratio: 9 / 19; /* Proporção moderna de tela */
+                        background: #000;
+                        border-radius: 32px;
+                        overflow: hidden;
+                        border: 1px solid rgba(255,255,255,0.05);
+                    ">
+                        <!-- Dynamic Island / Notch -->
+                        <div class="ig-notch" style="
+                            position: absolute;
+                            top: 8px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 90px;
+                            height: 24px;
+                            background: #000;
+                            border-radius: 20px;
+                            z-index: 10;
+                            box-shadow: inset 0 -1px 2px rgba(255,255,255,0.1);
+                        "></div>
+                        
+                        <video
+                            src="painel-prova.mp4"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            preload="auto"
+                            style="
+                                position: absolute;
+                                inset: 0;
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain; /* Garantia que não vai cortar */
+                                background: #000;
+                                display: block;
+                            "
+                        ></video>
+
+                        <!-- Reflexo de Vidro (Glare) -->
+                        <div class="ig-screen-glare" style="
+                            position: absolute;
+                            inset: 0;
+                            background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 40%);
+                            pointer-events: none;
+                            z-index: 10;
+                        "></div>
+                    </div>
                 </div>
             </div>
         </div>
