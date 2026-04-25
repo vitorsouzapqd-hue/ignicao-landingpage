@@ -168,15 +168,39 @@
 
         /* ═══ ANIMAÇÃO DE FOGO ARDENDO (Importado do Quiz) ═══ */
         @keyframes flame-flicker {
-            0%, 100% { transform: scale(1) translateY(0) rotate(-1deg); opacity: 0.8; }
-            25% { transform: scale(1.05) translateY(-2px) rotate(1deg); opacity: 1; }
-            50% { transform: scale(0.95) translateY(0) rotate(-2deg); opacity: 0.9; }
-            75% { transform: scale(1.08) translateY(-1px) rotate(2deg); opacity: 1; }
+
+            0%,
+            100% {
+                transform: scale(1) translateY(0) rotate(-1deg);
+                opacity: 0.8;
+            }
+
+            25% {
+                transform: scale(1.05) translateY(-2px) rotate(1deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(0.95) translateY(0) rotate(-2deg);
+                opacity: 0.9;
+            }
+
+            75% {
+                transform: scale(1.08) translateY(-1px) rotate(2deg);
+                opacity: 1;
+            }
         }
 
         @keyframes flame-glow {
-            0%, 100% { filter: drop-shadow(0 0 2px #C01A1A) drop-shadow(0 0 5px #FF734A); }
-            50% { filter: drop-shadow(0 0 4px #C01A1A) drop-shadow(0 0 12px #FF734A); }
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 2px #C01A1A) drop-shadow(0 0 5px #FF734A);
+            }
+
+            50% {
+                filter: drop-shadow(0 0 4px #C01A1A) drop-shadow(0 0 12px #FF734A);
+            }
         }
 
         .flame-icon {
@@ -190,9 +214,23 @@
             animation: flame-flicker 1.5s infinite ease-in-out;
         }
 
-        .flame-part-1 { animation-delay: 0s; fill: #C01A1A; opacity: 0.9; }
-        .flame-part-2 { animation-delay: 0.3s; fill: #FF734A; opacity: 0.95; }
-        .flame-part-3 { animation-delay: 0.6s; fill: #FBBF24; opacity: 1; }
+        .flame-part-1 {
+            animation-delay: 0s;
+            fill: #C01A1A;
+            opacity: 0.9;
+        }
+
+        .flame-part-2 {
+            animation-delay: 0.3s;
+            fill: #FF734A;
+            opacity: 0.95;
+        }
+
+        .flame-part-3 {
+            animation-delay: 0.6s;
+            fill: #FBBF24;
+            opacity: 1;
+        }
 
         @keyframes ig-float-a {
 
@@ -605,12 +643,15 @@
     <!-- HERO -->
     <section
         style="position:relative; padding:clamp(80px, 11vw, 132px) 24px clamp(64px, 8vw, 96px); overflow:hidden; text-align:center; background:var(--color-bg);">
-        
+
         <!-- TEXTURA DE FUNDO (Grit Editorial) -->
-        <div style="position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0.04; background-image:url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E&quot;);"></div>
+        <div
+            style="position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0.04; background-image:url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E&quot;);">
+        </div>
 
         <!-- CANVAS PARA FAÍSCAS (Background Animado Intenso) -->
-        <canvas id="heroSparks" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; opacity:0.9;"></canvas>
+        <canvas id="heroSparks"
+            style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; opacity:0.9;"></canvas>
         <div class="ig-hero-glow ig-hero-glow-a"
             style="position:absolute; top:-180px; right:-12%; width:560px; height:560px; background:radial-gradient(circle, rgba(216,140,238,0.16) 0%, rgba(216,140,238,0) 65%); pointer-events:none; filter:blur(8px);">
         </div>
@@ -644,7 +685,8 @@
             </h1>
             <p class="reveal"
                 style="font-family:Inter, sans-serif; font-size:clamp(0.92rem, 2.2vw, 1.12rem); color:var(--color-text-readable); max-width:600px; margin:22px auto 0; line-height:1.55; transition-delay:120ms;">
-                Meses de treino não salvam uma nutrição errada. Aqui você descobre antes o que funciona no seu corpo.
+                Você pode treinar por meses… mas é a sua nutrição que decide se você termina forte ou quebra no meio da
+                prova.
             </p>
             <div class="reveal" style="margin-top:40px; display:flex; justify-content:center; transition-delay:180ms;">
                 <a href="https://api.whatsapp.com/send/?phone=5592991118886&text=Quero+montar+a+minha+estrat%C3%A9gia+de+prova+com+voc%C3%AA"
@@ -654,7 +696,9 @@
         </div>
 
         <!-- LINHA DIVISÓRIA (Sangue-Brasa-Centelha) -->
-        <div style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);"></div>
+        <div
+            style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);">
+        </div>
     </section>
 
     <!-- SISTEMA / MOCKUP -->
@@ -823,9 +867,11 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- LINHA DIVISÓRIA (Sangue-Brasa-Centelha) - Transição clara para escura -->
-        <div style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);"></div>
+        <div
+            style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);">
+        </div>
     </section>
 
     <!-- PROBLEMA -->
@@ -1085,7 +1131,9 @@
         </div>
 
         <!-- LINHA DIVISÓRIA -->
-        <div style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);"></div>
+        <div
+            style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);">
+        </div>
     </section>
 
     <!-- QUALIFICAÇÃO (Estava faltando!) -->
@@ -1219,7 +1267,9 @@
         </div>
 
         <!-- LINHA DIVISÓRIA -->
-        <div style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);"></div>
+        <div
+            style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);">
+        </div>
     </section>
 
     <!-- ENTREGÁVEIS + BÔNUS (Estava faltando!) -->
@@ -1561,7 +1611,9 @@
         </div>
 
         <!-- LINHA DIVISÓRIA -->
-        <div style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);"></div>
+        <div
+            style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);">
+        </div>
     </section>
 
     <!-- FAQ -->
@@ -1707,7 +1759,9 @@
         </div>
 
         <!-- LINHA DIVISÓRIA -->
-        <div style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);"></div>
+        <div
+            style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);">
+        </div>
     </section>
 
     <!-- FOOTER -->
@@ -1869,7 +1923,7 @@
         if (sparksCanvas) {
             const sctx = sparksCanvas.getContext('2d');
             let sparks = [];
-            
+
             const resizeSparks = () => {
                 sparksCanvas.width = sparksCanvas.offsetWidth;
                 sparksCanvas.height = sparksCanvas.offsetHeight;
@@ -1884,14 +1938,14 @@
                     const centerBias = (Math.random() - 0.5) * (Math.random() - 0.5) * 2;
                     this.x = sparksCanvas.width / 2 + centerBias * sparksCanvas.width;
                     if (this.x < 0 || this.x > sparksCanvas.width) this.x = Math.random() * sparksCanvas.width;
-                    
+
                     this.y = sparksCanvas.height + Math.random() * 150;
                     this.vx = (Math.random() - 0.5) * 1.0;
-                    this.vy = -(Math.random() * 3.0 + 1.5); 
+                    this.vy = -(Math.random() * 3.0 + 1.5);
                     this.size = Math.random() * 6 + 2; // Faíscas maiores formam o corpo do fogo
                     this.alpha = Math.random() * 0.5 + 0.5;
                     this.decay = Math.random() * 0.01 + 0.003; // Queimam mais rápido
-                    
+
                     // Cores intensas para additive blending
                     const randColor = Math.random();
                     if (randColor > 0.8) this.color = 'rgba(251,191,36,'; // Âmbar
@@ -1902,7 +1956,7 @@
                     this.x += this.vx;
                     this.y += this.vy;
                     // Movimento sinuoso de fogo
-                    this.vx += Math.sin(this.y * 0.05) * 0.05; 
+                    this.vx += Math.sin(this.y * 0.05) * 0.05;
                     this.size *= 0.97; // Diminuem conforme sobem
                     this.alpha -= this.decay;
                     if (this.alpha <= 0 || this.y < -50 || this.size < 0.5) this.init();
@@ -1911,13 +1965,13 @@
                     sctx.save();
                     // O segredo do fogo: additive blending
                     sctx.globalCompositeOperation = 'lighter';
-                    
+
                     // Gradiente radial para cada partícula (macio)
                     const grad = sctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
                     grad.addColorStop(0, this.color + this.alpha + ')');
                     grad.addColorStop(0.4, this.color + (this.alpha * 0.5) + ')');
                     grad.addColorStop(1, this.color + '0)');
-                    
+
                     sctx.fillStyle = grad;
                     sctx.beginPath();
                     sctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
