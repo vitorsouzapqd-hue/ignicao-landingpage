@@ -605,6 +605,9 @@
     <!-- HERO -->
     <section
         style="position:relative; padding:clamp(80px, 11vw, 132px) 24px clamp(64px, 8vw, 96px); overflow:hidden; text-align:center;">
+        
+        <!-- CANVAS PARA FAÍSCAS (Background Animado) -->
+        <canvas id="heroSparks" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; opacity:0.6;"></canvas>
         <div class="ig-hero-glow ig-hero-glow-a"
             style="position:absolute; top:-180px; right:-12%; width:560px; height:560px; background:radial-gradient(circle, rgba(216,140,238,0.16) 0%, rgba(216,140,238,0) 65%); pointer-events:none; filter:blur(8px);">
         </div>
@@ -1838,6 +1841,60 @@
             };
             document.addEventListener('click', playOnFirstInteraction);
             document.addEventListener('touchstart', playOnFirstInteraction);
+        }
+
+        // 6. HERO SPARKS ANIMATION (Canvas)
+        const sparksCanvas = document.getElementById('heroSparks');
+        if (sparksCanvas) {
+            const sctx = sparksCanvas.getContext('2d');
+            let sparks = [];
+            
+            const resizeSparks = () => {
+                sparksCanvas.width = sparksCanvas.offsetWidth;
+                sparksCanvas.height = sparksCanvas.offsetHeight;
+            };
+            window.addEventListener('resize', resizeSparks);
+            resizeSparks();
+
+            class Spark {
+                constructor() { this.init(); }
+                init() {
+                    this.x = Math.random() * sparksCanvas.width;
+                    this.y = sparksCanvas.height + Math.random() * 100;
+                    this.vx = (Math.random() - 0.5) * 0.8;
+                    this.vy = -(Math.random() * 1.2 + 0.4);
+                    this.size = Math.random() * 2 + 0.5;
+                    this.alpha = Math.random() * 0.4 + 0.3;
+                    this.decay = Math.random() * 0.004 + 0.002;
+                    this.color = Math.random() > 0.5 ? '#C01A1A' : '#FF734A';
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.alpha -= this.decay;
+                    if (this.alpha <= 0 || this.y < -20) this.init();
+                }
+                draw() {
+                    sctx.save();
+                    sctx.globalAlpha = this.alpha;
+                    sctx.fillStyle = this.color;
+                    sctx.shadowBlur = 6;
+                    sctx.shadowColor = this.color;
+                    sctx.beginPath();
+                    sctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    sctx.fill();
+                    sctx.restore();
+                }
+            }
+
+            for (let i = 0; i < 45; i++) sparks.push(new Spark());
+
+            const animateSparks = () => {
+                sctx.clearRect(0, 0, sparksCanvas.width, sparksCanvas.height);
+                sparks.forEach(s => { s.update(); s.draw(); });
+                requestAnimationFrame(animateSparks);
+            };
+            animateSparks();
         }
     </script>
 </body>
