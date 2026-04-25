@@ -823,6 +823,9 @@
                 </div>
             </div>
         </div>
+        
+        <!-- LINHA DIVISÓRIA (Sangue-Brasa-Centelha) - Transição clara para escura -->
+        <div style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);"></div>
     </section>
 
     <!-- PROBLEMA -->
@@ -1865,51 +1868,54 @@
             class Spark {
                 constructor() { this.init(); }
                 init() {
-                    this.x = Math.random() * sparksCanvas.width;
-                    this.y = sparksCanvas.height + Math.random() * 200; // Nascem mais abaixo
-                    this.vx = (Math.random() - 0.5) * 1.5; // Mais movimento lateral
-                    this.vy = -(Math.random() * 2.5 + 1.0); // Muito mais rápidas
-                    this.size = Math.random() * 3.5 + 0.5; // Maior variação de tamanho
-                    this.alpha = Math.random() * 0.6 + 0.4; // Mais brilhantes
-                    this.decay = Math.random() * 0.008 + 0.002;
+                    // Distribui mais as faíscas no centro, como uma grande fogueira
+                    const centerBias = (Math.random() - 0.5) * (Math.random() - 0.5) * 2;
+                    this.x = sparksCanvas.width / 2 + centerBias * sparksCanvas.width;
+                    if (this.x < 0 || this.x > sparksCanvas.width) this.x = Math.random() * sparksCanvas.width;
                     
-                    // Variação de cores (Sangue, Brasa, Centelha)
+                    this.y = sparksCanvas.height + Math.random() * 150;
+                    this.vx = (Math.random() - 0.5) * 1.0;
+                    this.vy = -(Math.random() * 3.0 + 1.5); 
+                    this.size = Math.random() * 6 + 2; // Faíscas maiores formam o corpo do fogo
+                    this.alpha = Math.random() * 0.5 + 0.5;
+                    this.decay = Math.random() * 0.01 + 0.003; // Queimam mais rápido
+                    
+                    // Cores intensas para additive blending
                     const randColor = Math.random();
-                    if (randColor > 0.7) this.color = '#FBBF24'; // Âmbar (Centelha)
-                    else if (randColor > 0.3) this.color = '#FF734A'; // Laranja (Brasa)
-                    else this.color = '#C01A1A'; // Vermelho (Sangue)
+                    if (randColor > 0.8) this.color = 'rgba(251,191,36,'; // Âmbar
+                    else if (randColor > 0.4) this.color = 'rgba(255,115,74,'; // Laranja
+                    else this.color = 'rgba(192,26,26,'; // Vermelho
                 }
                 update() {
                     this.x += this.vx;
                     this.y += this.vy;
-                    // Simula turbulência no movimento
-                    this.vx += (Math.random() - 0.5) * 0.1; 
+                    // Movimento sinuoso de fogo
+                    this.vx += Math.sin(this.y * 0.05) * 0.05; 
+                    this.size *= 0.97; // Diminuem conforme sobem
                     this.alpha -= this.decay;
-                    if (this.alpha <= 0 || this.y < -20) this.init();
+                    if (this.alpha <= 0 || this.y < -50 || this.size < 0.5) this.init();
                 }
                 draw() {
                     sctx.save();
-                    sctx.globalAlpha = this.alpha;
-                    sctx.fillStyle = this.color;
-                    sctx.shadowBlur = this.size * 3; // Brilho proporcional ao tamanho
-                    sctx.shadowColor = this.color;
+                    // O segredo do fogo: additive blending
+                    sctx.globalCompositeOperation = 'lighter';
+                    
+                    // Gradiente radial para cada partícula (macio)
+                    const grad = sctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+                    grad.addColorStop(0, this.color + this.alpha + ')');
+                    grad.addColorStop(0.4, this.color + (this.alpha * 0.5) + ')');
+                    grad.addColorStop(1, this.color + '0)');
+                    
+                    sctx.fillStyle = grad;
                     sctx.beginPath();
                     sctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     sctx.fill();
-                    // Núcleo branco para as faíscas maiores/mais quentes
-                    if (this.size > 2) {
-                        sctx.fillStyle = 'rgba(255,255,255,0.7)';
-                        sctx.shadowBlur = 0;
-                        sctx.beginPath();
-                        sctx.arc(this.x, this.y, this.size * 0.4, 0, Math.PI * 2);
-                        sctx.fill();
-                    }
                     sctx.restore();
                 }
             }
 
-            // Aumentando de 45 para 150 faíscas
-            for (let i = 0; i < 150; i++) sparks.push(new Spark());
+            // Aumentando ainda mais para formar labaredas densas
+            for (let i = 0; i < 200; i++) sparks.push(new Spark());
 
             const animateSparks = () => {
                 sctx.clearRect(0, 0, sparksCanvas.width, sparksCanvas.height);
