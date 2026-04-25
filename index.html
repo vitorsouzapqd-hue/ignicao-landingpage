@@ -753,7 +753,7 @@
                             z-index: 20;
                         "></div>
 
-                        <video src="painel-prova.mp4" autoplay loop muted playsinline preload="auto" style="
+                        <video id="mockupVideo" src="painel-prova.mp4" autoplay loop muted playsinline preload="auto" style="
                             position: absolute;
                             inset: 0;
                             width: 100%;
@@ -1758,6 +1758,37 @@
                 iconMoon.style.display = 'block';
             }
         });
+
+        // 5. VIDEO AUTOPLAY FORCED (Intersection Observer)
+        const mockupVideo = document.getElementById('mockupVideo');
+        if (mockupVideo) {
+            // Tenta dar play imediatamente
+            mockupVideo.play().catch(() => { /* bloqueado inicialmente */ });
+
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        mockupVideo.play().catch(err => {
+                            console.warn("Autoplay bloqueado pelo navegador. Tentando novamente...");
+                        });
+                    } else {
+                        mockupVideo.pause();
+                    }
+                });
+            }, { threshold: 0.2 });
+            videoObserver.observe(mockupVideo);
+
+            // Fallback: Play no primeiro clique/toque na página se ainda estiver pausado
+            const playOnFirstInteraction = () => {
+                if (mockupVideo.paused) {
+                    mockupVideo.play();
+                }
+                document.removeEventListener('click', playOnFirstInteraction);
+                document.removeEventListener('touchstart', playOnFirstInteraction);
+            };
+            document.addEventListener('click', playOnFirstInteraction);
+            document.addEventListener('touchstart', playOnFirstInteraction);
+        }
     </script>
 </body>
 
