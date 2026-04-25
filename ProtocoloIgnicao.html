@@ -450,11 +450,14 @@
                             preload="auto"
                             style="
                                 position: absolute;
-                                inset: 0;
+                                top: 40px; /* Começa abaixo do notch */
+                                bottom: 20px; /* Termina antes da curva da base */
+                                left: 0;
+                                right: 0;
                                 width: 100%;
-                                height: 100%;
-                                object-fit: contain; /* Mantém a proporção sem cortes */
-                                padding: 2px 0; /* Pequena margem de segurança */
+                                height: auto;
+                                max-height: calc(100% - 60px);
+                                object-fit: contain;
                                 background: #000;
                                 display: block;
                             "
