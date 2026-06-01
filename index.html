@@ -61,7 +61,7 @@
             --color-text-readable: #4A4845;
             --color-text-disabled: #A09A94;
             /* hsl(30, 8%, 60%) */
-            --color-action-primary: #C01A1A;
+            --color-action-primary: #3d3737;
             --color-accent-cold: #9B3FC0;
             /* hsl(282, 51%, 50%) */
             --color-border-subtle: rgba(0, 0, 0, 0.1);
@@ -642,7 +642,7 @@
 
     <!-- HERO -->
     <section
-        style="position:relative; padding:clamp(80px, 11vw, 132px) 24px clamp(64px, 8vw, 96px); overflow:hidden; text-align:center; background:var(--color-bg);">
+        style="position:relative; padding:clamp(60px, 8vw, 90px) 24px clamp(40px, 5vw, 60px); overflow:hidden; text-align:center; background:var(--color-bg);">
 
         <!-- TEXTURA DE FUNDO (Grit Editorial) -->
         <div
@@ -680,17 +680,42 @@
                 </span>
             </div>
             <h1 class="reveal"
-                style="font-family:var(--font-display); font-weight:700; font-size:clamp(2.6rem, 8vw, 4.2rem); letter-spacing:-0.04em; line-height:1.0; color:var(--color-text-primary); margin:24px 0 0; text-wrap:balance; transition-delay:60ms;">
-                Não jogue meses de treino fora por <span class="grad-text">um erro bobo de nutrição</span> na prova
+                style="font-family:var(--font-display); font-weight:700; font-size:clamp(2.6rem, 8vw, 4.2rem); letter-spacing:-0.04em; line-height:1.08; color:var(--color-text-primary); margin:24px 0 0; text-wrap:balance; transition-delay:60ms;">
+                Não jogue meses de treino fora por <span class="grad-text"> um erro bobo de nutrição </span> na prova
             </h1>
             <p class="reveal"
                 style="font-family:Inter, sans-serif; font-size:clamp(0.92rem, 2.2vw, 1.12rem); color:var(--color-text-readable); max-width:600px; margin:22px auto 0; line-height:1.55; transition-delay:120ms;">
                 Você pode treinar por meses… mas é a sua nutrição que decide se você termina forte ou quebra no meio da
                 prova.
             </p>
-            <div class="reveal" style="margin-top:40px; display:flex; justify-content:center; transition-delay:180ms;">
-                <a href="https://api.whatsapp.com/send/?phone=5592991118886&text=Quero+montar+a+minha+estrat%C3%A9gia+de+prova+com+voc%C3%AA"
-                    target="_blank" class="cta-btn large">QUERO MONTAR MINHA ESTRATÉGIA</a>
+            <div class="reveal" style="margin-top:32px; display:flex; flex-direction:column; align-items:center; transition-delay:180ms;">
+                <div style="display:inline-flex; align-items:center; gap:10px; padding:12px 24px; border-radius:100px; background:color-mix(in srgb, var(--color-text-primary) 4%, transparent); border:1px solid var(--color-border-subtle); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); cursor:pointer; transition:all 0.3s ease; box-shadow:0 8px 32px -12px rgba(0,0,0,0.15);"
+                     onmouseover="this.style.background='color-mix(in srgb, var(--color-text-primary) 8%, transparent)'; this.style.borderColor='var(--color-action-primary)';"
+                     onmouseout="this.style.background='color-mix(in srgb, var(--color-text-primary) 4%, transparent)'; this.style.borderColor='var(--color-border-subtle)';"
+                     onclick="window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });">
+                    <span style="font-family:var(--font-display); font-size:0.75rem; color:var(--color-text-primary); text-transform:uppercase; letter-spacing:0.25em; font-weight:600;">
+                        Descubra o Método
+                    </span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-action-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:ig-bounce-arrow 2s infinite;">
+                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                    </svg>
+                </div>
+                
+                <div style="width:1px; height:40px; background:var(--color-border-subtle); margin-top:20px; position:relative; overflow:hidden;">
+                    <div style="width:100%; height:60%; background:var(--brand-gradient); position:absolute; top:-60%; left:0; animation:ig-scroll-line 2.2s cubic-bezier(0.77, 0, 0.175, 1) infinite;"></div>
+                </div>
+
+                <style>
+                    @keyframes ig-bounce-arrow {
+                        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                        40% { transform: translateY(4px); }
+                        60% { transform: translateY(2px); }
+                    }
+                    @keyframes ig-scroll-line {
+                        0% { top: -60%; }
+                        100% { top: 120%; }
+                    }
+                </style>
             </div>
 
         </div>
@@ -983,6 +1008,30 @@
                 </p>
             </div>
 
+            <style>
+                .method-dot::after {
+                    content: '';
+                    position: absolute;
+                    inset: -2px; /* Covers the 2px border */
+                    border-radius: inherit;
+                    background: var(--brand-gradient);
+                    opacity: 0;
+                    transition: opacity 0.4s ease;
+                    z-index: 0;
+                }
+                .method-dot svg {
+                    position: relative;
+                    z-index: 1;
+                    transition: color 0.4s ease;
+                }
+                .method-dot.active::after {
+                    opacity: 1;
+                }
+                .method-dot.active {
+                    border-color: transparent !important;
+                    box-shadow: 0 0 24px rgba(255,115,74,0.45) !important;
+                }
+            </style>
             <div id="methodContainer" style="position:relative; margin-top:48px; padding-left:56px;">
                 <div
                     style="position:absolute; left:19px; top:8px; bottom:8px; width:2px; background:var(--color-border-subtle); border-radius:2px;">
@@ -1775,8 +1824,7 @@
 
     <!-- STICKY CTA MOBILE -->
     <div class="ig-sticky-cta" id="stickyCta">
-        <a href="https://api.whatsapp.com/send/?phone=5592991118886&text=Quero+montar+a+minha+estrat%C3%A9gia+de+prova+com+voc%C3%AA"
-            target="_blank" class="cta-btn small">COMEÇAR AGORA</a>
+        <a href="#oferta" class="cta-btn small" onclick="event.preventDefault(); document.getElementById('oferta').scrollIntoView({behavior: 'smooth'});">COMEÇAR AGORA</a>
     </div>
 
     <script>
@@ -1815,14 +1863,10 @@
                     const dot = s.querySelector('.method-dot');
                     const icon = s.querySelector('.method-icon');
                     if (percent >= req) {
-                        dot.style.background = 'var(--brand-gradient)';
-                        dot.style.borderColor = 'transparent';
-                        dot.style.boxShadow = '0 0 24px rgba(255,115,74,0.45)';
+                        dot.classList.add('active');
                         icon.style.color = '#FFF';
                     } else {
-                        dot.style.background = 'var(--color-surface-mid)';
-                        dot.style.borderColor = 'var(--color-border)';
-                        dot.style.boxShadow = 'none';
+                        dot.classList.remove('active');
                         icon.style.color = 'var(--color-text-readable)';
                     }
                 });
@@ -1831,17 +1875,20 @@
             // Sticky CTA
             const sticky = document.getElementById('stickyCta');
             const isMobile = window.innerWidth < 720;
-            if (isMobile) {
+            if (isMobile && timeline) {
+                const tRect = timeline.getBoundingClientRect();
+                const passedMethodology = tRect.bottom < window.innerHeight * 0.5; // Trigger after passing the 4 phases
                 const oferta = document.getElementById('oferta');
+                
                 if (oferta) {
                     const oRect = oferta.getBoundingClientRect();
                     const inView = oRect.top < window.innerHeight * 0.85 && oRect.bottom > 0;
-                    if (window.scrollY > 360 && !inView) {
+                    if (passedMethodology && !inView) {
                         sticky.style.transform = 'translateY(0)';
                     } else {
                         sticky.style.transform = 'translateY(110%)';
                     }
-                } else if (window.scrollY > 360) {
+                } else if (passedMethodology) {
                     sticky.style.transform = 'translateY(0)';
                 } else {
                     sticky.style.transform = 'translateY(110%)';
