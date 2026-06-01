@@ -1551,7 +1551,7 @@
         </div>
     </section>
 
-    <!-- OFERTA / PREÇO (Idêntico) -->
+    <!-- OFERTA / PREÇO -->
     <section id="oferta"
         style="position:relative; padding:clamp(80px, 10vw, 120px) 24px; border-top:1px solid var(--color-border-subtle); border-bottom:1px solid var(--color-border-subtle); background:var(--color-bg); overflow:hidden;">
         <div
@@ -1567,12 +1567,6 @@
                         class="grad-text"> Não jogue
                         isso fora. </span>
                 </h2>
-            </div>
-
-            <div class="reveal" style="transition-delay:50ms;">
-                <p
-                    style="margin:28px auto 0; font-family:var(--font-display); font: size 1.05em;rem; color:var(--color-text-readable); font-weight:600; letter-spacing:0.04em;">
-                    Investimento: a partir de 12x de <span style="color:var(--color-text-primary);">R$ 29,70</span></p>
             </div>
 
             <div class="reveal" style="transition-delay:100ms;">
@@ -1628,6 +1622,26 @@
                                 style="height:1px; background:var(--brand-gradient); margin:18px 0 18px; border-radius:2px; opacity:0.8;">
                             </div>
 
+                            <!-- MELHORIA 4: Urgência visual com vagas restantes -->
+                            <div id="vagasBar"
+                                style="margin-bottom:18px; padding:12px 14px; border-radius:var(--radius-element); background:rgba(192,26,26,0.07); border:1px solid rgba(192,26,26,0.22);">
+                                <div
+                                    style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                                    <span
+                                        style="font-family:var(--font-display); font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-action-primary);">Vagas
+                                        desta turma</span>
+                                    <span id="vagasNum"
+                                        style="font-family:var(--font-display); font-size:0.72rem; font-weight:700; color:var(--color-text-primary);">3
+                                        restantes</span>
+                                </div>
+                                <div
+                                    style="height:6px; background:var(--color-border-subtle); border-radius:99px; overflow:hidden;">
+                                    <div id="vagasProgress"
+                                        style="height:100%; width:85%; background:var(--brand-gradient); border-radius:99px; transition:width 1s ease;">
+                                    </div>
+                                </div>
+                            </div>
+
                             <div style="text-align:center;">
                                 <div
                                     style="color:var(--color-text-readable); font-size:0.78rem; margin-bottom:2px; letter-spacing:0.06em; text-transform:uppercase; font-weight:600;">
@@ -1637,33 +1651,49 @@
                                     R$ 29,70</div>
                                 <div
                                     style="margin-top:6px; font-size:0.88rem; color:var(--color-text-primary); font-weight:600;">
-                                    ou <span style="color:#10B981;">R$ 297</span> à vista</div>
+                                    ou <span style="color:#10B981;">R$ 297</span> à vista - economia de R$ 59,40</div>
                             </div>
 
-                            <div style="margin-top:22px; display:flex; justify-content:center;">
+                            <!-- MELHORIA 2: Frase de reforço emocional antes do botão -->
+                            <p
+                                style="margin:18px 0 0; text-align:center; font-size:0.88rem; color:var(--color-text-readable); line-height:1.55;">
+                                Você já pagou caro pelo treino, pela inscrição, pela passagem.<br>
+                                <strong style="color:var(--color-text-primary);">Não entregue tudo ao acaso na hora que
+                                    mais importa.</strong>
+                            </p>
+
+                            <div style="margin-top:16px; display:flex; justify-content:center;">
+                                <!-- MELHORIA 3: Botão orientado a resultado -->
                                 <a href="https://api.whatsapp.com/send/?phone=5592991118886&text=Quero+montar+a+minha+estrat%C3%A9gia+de+prova+com+voc%C3%AA"
-                                    target="_blank" class="cta-btn large full-width" style="width:100%;">QUERO MONTAR
-                                    MINHA ESTRATÉGIA</a>
+                                    target="_blank" class="cta-btn large full-width" style="width:100%;">GARANTIR MINHA
+                                    VAGA AGORA</a>
                             </div>
+
+                            <!-- MELHORIA 5: Micro-copy explicando o que acontece após o clique -->
+                            <p
+                                style="text-align:center; color:var(--color-text-disabled); font-size:0.76rem; margin-top:10px; line-height:1.6;">
+                                👆 Você vai para o WhatsApp me falar sobre a sua prova · Sem cartão agora · Só confirma
+                                o interesse e combinamos os
+                                detalhes
+                            </p>
+
                             <div
-                                style="margin-top:16px; display:flex; align-items:center; justify-content:center; gap:8px; color:var(--color-text-readable); font-size:0.82rem; font-weight:500;">
+                                style="margin-top:12px; display:flex; align-items:center; justify-content:center; gap:8px; color:var(--color-text-readable); font-size:0.82rem; font-weight:500;">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                                     stroke="var(--color-action-primary)" stroke-width="2">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                                     <path d="m9 12 2 2 4-4"></path>
                                 </svg>
-                                <span>Garantia de 7 dias — O risco é meu</span>
+                                <span>Garantia de 7 dias. Risco Zero pra você</span>
                             </div>
-                            <p
-                                style="text-align:center; color:var(--color-text-readable); font-size:0.76rem; margin-top:10px; line-height:1.5;">
-                                Acesso imediato após confirmação · Valor promocional de lançamento para os 10 primeiros.
-                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <!-- GARANTIA (Estava faltando!) -->
     <section style="position:relative; padding:clamp(64px, 8vw, 96px) 24px;">
