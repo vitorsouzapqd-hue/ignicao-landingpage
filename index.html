@@ -688,32 +688,58 @@
                 Você pode treinar por meses… mas é a sua nutrição que decide se você termina forte ou quebra no meio da
                 prova.
             </p>
-            <div class="reveal" style="margin-top:32px; display:flex; flex-direction:column; align-items:center; transition-delay:180ms;">
+            <div class="reveal"
+                style="margin-top:32px; display:flex; flex-direction:column; align-items:center; transition-delay:180ms;">
                 <div style="display:inline-flex; align-items:center; gap:10px; padding:12px 24px; border-radius:100px; background:color-mix(in srgb, var(--color-text-primary) 4%, transparent); border:1px solid var(--color-border-subtle); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); cursor:pointer; transition:all 0.3s ease; box-shadow:0 8px 32px -12px rgba(0,0,0,0.15);"
-                     onmouseover="this.style.background='color-mix(in srgb, var(--color-text-primary) 8%, transparent)'; this.style.borderColor='var(--color-action-primary)';"
-                     onmouseout="this.style.background='color-mix(in srgb, var(--color-text-primary) 4%, transparent)'; this.style.borderColor='var(--color-border-subtle)';"
-                     onclick="window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });">
-                    <span style="font-family:var(--font-display); font-size:0.75rem; color:var(--color-text-primary); text-transform:uppercase; letter-spacing:0.25em; font-weight:600;">
+                    onmouseover="this.style.background='color-mix(in srgb, var(--color-text-primary) 8%, transparent)'; this.style.borderColor='var(--color-action-primary)';"
+                    onmouseout="this.style.background='color-mix(in srgb, var(--color-text-primary) 4%, transparent)'; this.style.borderColor='var(--color-border-subtle)';"
+                    onclick="window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });">
+                    <span
+                        style="font-family:var(--font-display); font-size:0.75rem; color:var(--color-text-primary); text-transform:uppercase; letter-spacing:0.25em; font-weight:600;">
                         Descubra o Método
                     </span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-action-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="animation:ig-bounce-arrow 2s infinite;">
-                        <path d="M12 5v14M19 12l-7 7-7-7"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-action-primary)"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        style="animation:ig-bounce-arrow 2s infinite;">
+                        <path d="M12 5v14M19 12l-7 7-7-7" />
                     </svg>
                 </div>
-                
-                <div style="width:1px; height:40px; background:var(--color-border-subtle); margin-top:20px; position:relative; overflow:hidden;">
-                    <div style="width:100%; height:60%; background:var(--brand-gradient); position:absolute; top:-60%; left:0; animation:ig-scroll-line 2.2s cubic-bezier(0.77, 0, 0.175, 1) infinite;"></div>
+
+                <div
+                    style="width:1px; height:40px; background:var(--color-border-subtle); margin-top:20px; position:relative; overflow:hidden;">
+                    <div
+                        style="width:100%; height:60%; background:var(--brand-gradient); position:absolute; top:-60%; left:0; animation:ig-scroll-line 2.2s cubic-bezier(0.77, 0, 0.175, 1) infinite;">
+                    </div>
                 </div>
 
                 <style>
                     @keyframes ig-bounce-arrow {
-                        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-                        40% { transform: translateY(4px); }
-                        60% { transform: translateY(2px); }
+
+                        0%,
+                        20%,
+                        50%,
+                        80%,
+                        100% {
+                            transform: translateY(0);
+                        }
+
+                        40% {
+                            transform: translateY(4px);
+                        }
+
+                        60% {
+                            transform: translateY(2px);
+                        }
                     }
+
                     @keyframes ig-scroll-line {
-                        0% { top: -60%; }
-                        100% { top: 120%; }
+                        0% {
+                            top: -60%;
+                        }
+
+                        100% {
+                            top: 120%;
+                        }
                     }
                 </style>
             </div>
@@ -893,7 +919,16 @@
             </div>
         </div>
 
+        <!-- LEGENDA DO APP -->
+        <p class="reveal"
+            style="max-width:560px; margin:32px auto 0; text-align:center; font-size:0.9rem; color:var(--color-text-readable); line-height:1.6;">
+            Esse é o <strong style="color:var(--color-text-primary);">Painel de Prova</strong>, o app exclusivo que você
+            recebe ao entrar no Protocolo. Ele te diz <em>o quê</em>, <em>quando</em> e <em>quanto</em> comer durante a
+            prova. Funciona offline. Sem WiFi, sem desculpa.
+        </p>
+
         <!-- LINHA DIVISÓRIA (Sangue-Brasa-Centelha) - Transição clara para escura -->
+
         <div
             style="position:absolute; bottom:0; left:0; width:100%; height:2px; background:linear-gradient(90deg, transparent 0%, rgba(192,26,26,0.8) 20%, rgba(255,115,74,1) 50%, rgba(251,191,36,0.9) 80%, transparent 100%); z-index:2; opacity:0.85; box-shadow:0 -4px 16px rgba(255,115,74,0.4);">
         </div>
@@ -1012,24 +1047,28 @@
                 .method-dot::after {
                     content: '';
                     position: absolute;
-                    inset: -2px; /* Covers the 2px border */
+                    inset: -2px;
+                    /* Covers the 2px border */
                     border-radius: inherit;
                     background: var(--brand-gradient);
                     opacity: 0;
                     transition: opacity 0.4s ease;
                     z-index: 0;
                 }
+
                 .method-dot svg {
                     position: relative;
                     z-index: 1;
                     transition: color 0.4s ease;
                 }
+
                 .method-dot.active::after {
                     opacity: 1;
                 }
+
                 .method-dot.active {
                     border-color: transparent !important;
-                    box-shadow: 0 0 24px rgba(255,115,74,0.45) !important;
+                    box-shadow: 0 0 24px rgba(255, 115, 74, 0.45) !important;
                 }
             </style>
             <div id="methodContainer" style="position:relative; margin-top:48px; padding-left:56px;">
@@ -1824,7 +1863,9 @@
 
     <!-- STICKY CTA MOBILE -->
     <div class="ig-sticky-cta" id="stickyCta">
-        <a href="#oferta" class="cta-btn small" onclick="event.preventDefault(); document.getElementById('oferta').scrollIntoView({behavior: 'smooth'});">COMEÇAR AGORA</a>
+        <a href="#oferta" class="cta-btn small"
+            onclick="event.preventDefault(); document.getElementById('oferta').scrollIntoView({behavior: 'smooth'});">COMEÇAR
+            AGORA</a>
     </div>
 
     <script>
@@ -1879,7 +1920,7 @@
                 const tRect = timeline.getBoundingClientRect();
                 const passedMethodology = tRect.bottom < window.innerHeight * 0.5; // Trigger after passing the 4 phases
                 const oferta = document.getElementById('oferta');
-                
+
                 if (oferta) {
                     const oRect = oferta.getBoundingClientRect();
                     const inView = oRect.top < window.innerHeight * 0.85 && oRect.bottom > 0;
